@@ -25,6 +25,7 @@ const CaseComponent = () => {
           },
           navigation: {
             action: {
+              save: true,
               export: {
                 show: true,
                 format: ['image/png', 'application/pdf']
@@ -34,6 +35,10 @@ const CaseComponent = () => {
         }
       },
       callbacks: {
+        onSave: (scene) => {
+          window.alert("Saving scene - outputting to console");
+          console.info(scene);
+        },
         onExport: 'download'
       },
       // Begin standard template presets
