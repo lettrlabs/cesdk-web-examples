@@ -7,7 +7,7 @@ const CaseComponent = () => {
     const config = {
       role: 'Creator',
       theme: 'dark',
-      initialSceneURL: `${window.location.protocol + "//" + window.location.host}/cases/advanced-ui/example.scene`,
+      initialSceneURL: `${window.location.protocol + "//" + window.location.host}/cases/handwritten_post_card.scene`,
       license: process.env.REACT_APP_LICENSE,
       ui: {
         elements: {
