@@ -26,6 +26,7 @@ const CaseComponent = () => {
           navigation: {
             action: {
               save: true,
+              load: true,
               export: {
                 show: true,
                 format: ['image/png', 'application/pdf']
@@ -38,6 +39,10 @@ const CaseComponent = () => {
         onSave: (scene) => {
           window.alert("Saving scene - outputting to console");
           console.info(scene);
+        },
+        onLoad: (scene) => {
+          let dakine = prompt("input scene");
+          return Promise.resolve(dakine);
         },
         onExport: 'download'
       },
