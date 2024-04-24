@@ -5,10 +5,10 @@ const CaseComponent = () => {
   const cesdk_container = useRef(null);
   useEffect(() => {
     const config = {
-      role: 'Creator',
       theme: 'dark',
-      initialSceneURL: `${window.location.protocol + "//" + window.location.host}/cases/handwritten_post_card.scene`,
       license: process.env.REACT_APP_LICENSE,
+      view: "",
+      role: "Creator",
       ui: {
         elements: {
           view: 'advanced',
@@ -25,7 +25,6 @@ const CaseComponent = () => {
           },
           navigation: {
             action: {
-              save: true,
               load: true,
               export: {
                 show: true,
@@ -36,62 +35,13 @@ const CaseComponent = () => {
         }
       },
       callbacks: {
-        onSave: (scene) => {
-          window.alert("Saving scene - outputting to console");
-          console.info(scene);
-        },
+        onExport: 'download',
+        onUpload: 'local',
         onLoad: (scene) => {
           let dakine = prompt("input scene");
           return Promise.resolve(dakine);
         },
-        onExport: 'download'
-      },
-      // Begin standard template presets
-      presets: {
-        templates: {
-          postcard_1: {
-            label: 'Postcard Design',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_postcard_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_postcard_1.png`
-          },
-          postcard_2: {
-            label: 'Postcard Tropical',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_postcard_2.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_postcard_2.png`
-          },
-          business_card_1: {
-            label: 'Business card',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_business_card_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_business_card_1.png`
-          },
-          instagram_photo_1: {
-            label: 'Instagram photo',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_instagram_photo_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_instagram_photo_1.png`
-          },
-          instagram_story_1: {
-            label: 'Instagram story',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_instagram_story_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_instagram_story_1.png`
-          },
-          poster_1: {
-            label: 'Poster',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_poster_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_poster_1.png`
-          },
-          presentation_4: {
-            label: 'Presentation',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_presentation_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_presentation_1.png`
-          },
-          collage_1: {
-            label: 'Collage',
-            scene: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_collage_1.scene`,
-            thumbnailURL: `https://cdn.img.ly/packages/imgly/cesdk-js/latest/assets/templates/cesdk_collage_1.png`
-          }
-        }
       }
-      // End standard template presets
     };
 
 
